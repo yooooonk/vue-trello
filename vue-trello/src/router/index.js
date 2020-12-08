@@ -10,11 +10,18 @@ import NotFound from '../components/NotFound.vue'
 Vue.use(VueRouter) //$route로 접근가능
 
 
+const requireAuth = (from,to,next)=>{
+      const isAuth = localStorage.getItem('token')
+      const loginPath = `/login?rPath=${encodeURIComponent(from.path)}`
+
+      isAuth? next():next(loginPath)
+}
+
 const routes = [
-  { path: '/', component: Home },
-  { path: '/login', component: Login },
-  { path: '/b/:bid', component: Board, children:[
-      {path:'c/:cid',component:Card}
+  { path: '/', component: Home, beforeEnter : requireAuth },
+  { path: '/login', component: Login},
+  { path: '/b/:bid', component: Board, beforeEnter : requireAuth, children:[
+      {path:'c/:cid', component:Card, beforeEnter : requireAuth}
   ] },  
   { path: '*', component: NotFound }
 ]
