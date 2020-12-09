@@ -57,7 +57,8 @@ $ vue init webpack-simple
 
 3. 인증
 
-- 네비게이션 가드로 로그인 토큰 확인
+- 네비게이션 가드로 로그인 토큰 확인해서 페이지 이동
+- Login.vue에서 로그인 api호출
 
 4. 보드 목록 만들기
 
@@ -68,7 +69,7 @@ $ vue init webpack-simple
 
 - state, mutation, action
 - 보드리스트 vuex로 바꾸기
-- 인증로직 vuex로 바꾸기 -- login, logout 기능을 여러컴포넌트에서 담당함
+- 인증로직 vuex로 바꾸기 -- login, logout 기능을 여러 player가 담당함(api,router,컴포넌트)
 
 ## 새로 알게 된 것
 
