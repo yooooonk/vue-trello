@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import { mapMutations, mapState } from "vuex";
+import { mapActions, mapMutations, mapState } from "vuex";
 import { board } from "../api";
 import AddBoard from "./AddBoard.vue";
 
@@ -56,6 +56,7 @@ export default {
   },
   methods: {
     ...mapMutations(["SET_IS_ADD_BOARD"]),
+
     fetchData() {
       this.loading = true;
 
@@ -68,10 +69,8 @@ export default {
           this.loading = false;
         });
     },
-    onAddBoard(title) {
-      board.create(title).then(() => {
-        this.fetchData();
-      });
+    onAddBoard() {
+      this.fetchData();
     }
   }
 };
