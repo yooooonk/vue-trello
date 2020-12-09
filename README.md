@@ -64,6 +64,8 @@ $ vue init webpack-simple
 - api 호출해 보드 목록 조회 후 화면에 뿌린다
 - 보드 추가 > modal창 생성, 보드추가 api
 
+5. Vuex
+
 ## 새로 알게 된 것
 
 - router와 SPA의 의미, 뷰 라우터
