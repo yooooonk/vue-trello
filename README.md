@@ -66,6 +66,10 @@ $ vue init webpack-simple
 
 5. Vuex
 
+- state, mutation, action
+- 보드리스트 vuex로 바꾸기
+- 인증로직 vuex로 바꾸기 -- login, logout 기능을 여러컴포넌트에서 담당함
+
 ## 새로 알게 된 것
 
 - router와 SPA의 의미, 뷰 라우터
@@ -74,3 +78,5 @@ $ vue init webpack-simple
   - 토큰은 로컬 스토리지에 저장
   - hader에 값 추가
   - 인증전후 페이지 이동처리
+- Vuex
+  - state, mutations, action
