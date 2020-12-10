@@ -11,10 +11,10 @@
                           <List :data="list" />
                       </div>
                   </div>
-              </div>
-              
+              </div>              
           </div>          
       </div>
+      <router-view></router-view>
   </div>
 </template>
 

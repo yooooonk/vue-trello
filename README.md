@@ -77,7 +77,7 @@ $ vue init webpack-simple
 - 보드 생성하면 바로 보드화면으로 이동
 - 보드 조회 화면
 - 카드 생성
-- 카드 상세조회
+- 카드 상세조회 : 보드화면에서 중첩라우팅
 
 ## 새로 알게 된 것
 
@@ -93,8 +93,50 @@ $ vue init webpack-simple
 - 카드 추가할 때 커서 포커스 - mounted
 - computed 속성 잘 쓰기
 - 폼의 외부를 클릭했을 때 이벤트(AddCard.vue의 setupClickOutside()참고)
+- 중첩라우팅
 
-## 해볼 것
+  - 라우터설정
+
+    ```javascript
+      { path: '/b/:bid', component: Board, beforeEnter : requireAuth,
+              children:[{path:'c/:cid', component:Card, beforeEnter : requireAuth}]
+    ```
+
+  - 상위 - 보드컴포넌트
+    ```javascript
+    <template>
+      <div>
+          <div class="board-wrapper">
+              <div class="board">
+                  <div class="board-header">
+                      <span class="board-title">{{board.title}} </span>
+                  </div>
+                  <div class="list-section-wrapper">
+                      <div class="list-section">
+                          <div class="list-wrapper" v-for="list in board.lists" :key="list.pos">
+                              <List :data="list" />
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <router-view></router-view>
+      </div>
+    </template>
+    ```
+  - 하위 - card item 컴포넌트
+    ```javascript
+    <template>
+        <div class="card-item">
+            <router-link :to="`/b/${boardId}/c/${data.id}`">
+                <div>{{data.title}} </div>
+                <div class="card-item-meta">&equiv;</div>
+            </router-link>
+        </div>
+    </template>
+    ```
+
+## 더 해볼 것
 
 - css 파일 분리
 - data modeling
