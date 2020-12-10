@@ -72,6 +72,13 @@ $ vue init webpack-simple
 - 인증로직 vuex로 바꾸기 -- login, logout 기능을 여러 player가 담당함(api,router,컴포넌트)
 - vuex 모듈화
 
+6. 기본 플로우 구현
+
+- 보드 생성하면 바로 보드화면으로 이동
+- 보드 조회 화면
+- 카드 생성
+- 카드 상세조회
+
 ## 새로 알게 된 것
 
 - router와 SPA의 의미, 뷰 라우터
@@ -82,3 +89,4 @@ $ vue init webpack-simple
   - 인증전후 페이지 이동처리
 - Vuex
   - state, mutations, action
+- 스프레드 연산자, 객체로 바로 element 갖고오기
