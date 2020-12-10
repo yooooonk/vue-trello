@@ -90,3 +90,12 @@ $ vue init webpack-simple
 - Vuex
   - state, mutations, action
 - 스프레드 연산자, 객체로 바로 element 갖고오기
+- 카드 추가할 때 커서 포커스 - mounted
+- computed 속성 잘 쓰기
+- 폼의 외부를 클릭했을 때 이벤트(AddCard.vue의 setupClickOutside()참고)
+
+## 해볼 것
+
+- css 파일 분리
+- data modeling
+- list pos값 넣기
