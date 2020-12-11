@@ -78,6 +78,7 @@ $ vue init webpack-simple
 - 보드 조회 화면
 - 카드 생성
 - 카드 상세조회 : 보드화면에서 중첩라우팅해서 모달창 띄우기!, 카드 상세 api 호출
+- 카드 수정 -- put메서드, blur시 api 호출
 
 ## 새로 알게 된 것
 
@@ -136,8 +137,11 @@ $ vue init webpack-simple
     </template>
     ```
 
+- 카드이동 : 드래그앤드롭 -- dragula lib
+
 ## 더 해볼 것
 
 - css 파일 분리
 - data modeling
 - list pos값 넣기
+- 트렐로 카드 이동할 떄 pos값 규칙이 있나? 로직 어떻게 구현해야해?

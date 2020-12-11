@@ -21,6 +21,7 @@
 <script>
 import {mapState,mapActions} from 'vuex'
 import List from './List.vue'
+import dragger from '../utils/dragger'
 
 export default {
     components:{
@@ -29,7 +30,8 @@ export default {
     data(){
         return{
             bid : 0,
-            loading: false
+            loading: false,
+            cDragger:null
 
         }
     },
@@ -37,7 +39,7 @@ export default {
         ...mapState(['board'])
     },
     methods:{
-        ...mapActions(['FETCH_BOARD']),
+        ...mapActions(['FETCH_BOARD','UPDATE_CARD']),
         fetchData(){
             this.loading = true
 
@@ -45,10 +47,43 @@ export default {
             .then(()=>this.loading = false)
 
                         
+        },
+        setCardDragabble(){
+          if(this.cDragger) this.cDragger.destroy()
+
+          this.cDragger = dragger.init(...Array.from(this.$el.querySelectorAll('.card-list')))
+
+          
+        this.cDragger.on('drop',(el,target,source,sibling)=>{
+
+          const targetCard = {
+            id:el.dataset.cardId*1,
+            pos:65535
+          }
+
+          const {prev,next} = dragger.sibling({
+              el,
+              target,
+              candidates:Array.from(target.querySelectorAll('.card-list')),
+              type:'card'
+          })
+
+          if(!prev && next) targetCard.pos = next.pos/2
+          else if(!next && prev) targetCard.pos = prev.pos*2
+          else if(prev && next) targetCard.pos = (prev.pos+next.pos)/2
+      
+         this.UPDATE_CARD(targetCard)
+      })  
+
         }
     },
     created(){
         this.fetchData()        
+    },
+    updated(){
+      
+      this.setCardDragabble();     
+   
     }
 }
 </script>

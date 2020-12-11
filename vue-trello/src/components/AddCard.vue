@@ -33,12 +33,20 @@ export default {
       if(this.invalidInput) return
 
       const {inputTitle, listId} = this
+      const pos = this.newCardPos()
 
       this.ADD_CARD({title:inputTitle,listId}).finally(()=>this.inputTitle='')
+    },
+    newCardPos(){
+      const curList = this.$store.state.board.lists.filter(l=>l.id===this.listId)[0]
+      console.log(curList)
 
+      if(!curList) return 65535
+      const {cards} = curList
+      if(!cards.length) return 65535
+      return cards[cards.length-1].pos*2
     },
     setupClickOutside(el){
-      console.log('setup')
       document.querySelector('body').addEventListener('click',e=>{
           
           if(el.contains(e.target)) return
