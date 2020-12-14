@@ -5,7 +5,8 @@ const dragger = {
     init(container){
         return dragula([...container])
     },
-    sibling({el,target,candidates,type}){
+    siblings({el,target,candidates,type}){
+
         const curId = el.dataset[type+'Id']*1
         let prev = null
         let next = null
@@ -13,7 +14,7 @@ const dragger = {
         candidates.forEach((el,idx,arr)=>{
             const id = el.dataset[type+'Id']*1
   
-              if(curId == id){
+              if(curId === id){
                 prev = idx > 0?{
                   id:arr[idx-1].dataset[type+'Id']*1,
                   pos:arr[idx-1].dataset[type+'Pos']*1
