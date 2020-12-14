@@ -4,11 +4,13 @@
             <div>{{data.title}} </div>
             <div class="card-item-meta">&equiv;</div>
         </router-link>
+        <a class="delete-card-btn" href="" @click.prevent="onDelete">&times;</a>
     </div>
+    
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 export default {
     props:['data'],
     computed:{
@@ -16,10 +18,13 @@ export default {
             boardId:state=>state.board.id
         })
     },
-    data(){
-        return{
+    methods :{
+      ...mapActions(['DELETE_CARD']),
+      onDelete(){
+        if(!window.confirm('Delete this card?')) return
 
-        }
+        this.DELETE_CARD({id:this.data.id})
+      }
     }
 }
 </script>
