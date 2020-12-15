@@ -1,7 +1,7 @@
 <template>
   <nav class="header">
     <div class="header-logo">
-      <router-link to="/">Home</router-link>
+      <router-link to="/" >Home</router-link>
     </div>
     <div class="header-auth">
       <a href="" v-if="isAuth" @click.prevent="logout">Logout</a>

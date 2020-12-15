@@ -81,6 +81,7 @@ $ vue init webpack-simple
 - 카드 수정 -- put메서드, blur시 api 호출
 - 카드 이동 - draggula 라이브러리 사용, 단순 구현 후 리팩토링
 - 색상 변경 : navbar컴포넌트에서----watch-----상태값 변경은 board 컴포넌트에서
+- 보드 셋팅 side bar
 
 ## 새로 알게 된 것
 

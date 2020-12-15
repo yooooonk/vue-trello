@@ -4,8 +4,9 @@ const state ={
     token : null ,
     board:[],
     card:{},
-    bodyColor:'#ffffff'    ,
-    navbarColor : '#026aa7'
+    bodyColor:'#ffffff',
+    navbarColor : '#026aa7',
+    isShowBoardSettings:false
     
 }
 
