@@ -80,6 +80,7 @@ $ vue init webpack-simple
 - 카드 상세조회 : 보드화면에서 중첩라우팅해서 모달창 띄우기!, 카드 상세 api 호출
 - 카드 수정 -- put메서드, blur시 api 호출
 - 카드 이동 - draggula 라이브러리 사용, 단순 구현 후 리팩토링
+- 색상 변경 : navbar컴포넌트에서----watch-----상태값 변경은 board 컴포넌트에서
 
 ## 새로 알게 된 것
 
@@ -147,3 +148,5 @@ $ vue init webpack-simple
 - data modeling
 - list pos값 넣기
 - 트렐로 카드 이동할 떄 pos값 규칙이 있나? 로직 어떻게 구현해야해?
+- 삭제 모달 confirm말고 다른걸로 할 수 있을까?
+- 무엇을 상태로 놓을 것인지, 컴포넌트간 데이터 전달관계

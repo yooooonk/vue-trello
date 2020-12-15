@@ -3,7 +3,9 @@ const state ={
     boards : [],
     token : null ,
     board:[],
-    card:{}    
+    card:{},
+    bodyColor:'#ffffff'    ,
+    navbarColor : '#026aa7'
     
 }
 
