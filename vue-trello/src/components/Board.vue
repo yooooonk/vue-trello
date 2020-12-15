@@ -82,8 +82,7 @@ export default {
     created(){
       this.SET_IS_SHOW_BOARD_SETTINS(false)
         this.fetchData().then(()=>{
-          this.SET_THEME(this.board.bgColor)
-          
+          this.SET_THEME(this.board.bgColor)          
         })
 
     },
