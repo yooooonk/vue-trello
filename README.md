@@ -83,6 +83,11 @@ $ vue init webpack-simple
 - 색상 변경 : navbar컴포넌트에서----watch-----상태값 변경은 board 컴포넌트에서
 - 보드 셋팅 side bar
 
+7. 추가 기능 구현
+
+- 보드 수정 : 색상변경, 제목 수정
+-
+
 ## 새로 알게 된 것
 
 - router와 SPA의 의미, 뷰 라우터
@@ -142,6 +147,7 @@ $ vue init webpack-simple
 
 - 카드이동 : 드래그앤드롭 -- dragula lib
 - 리팩토링 : 함수로 만들기, 라이브러리로 만들기
+- $nextTick
 
 ## 더 해볼 것
 
@@ -151,3 +157,4 @@ $ vue init webpack-simple
 - 트렐로 카드 이동할 떄 pos값 규칙이 있나? 로직 어떻게 구현해야해?
 - 삭제 모달 confirm말고 다른걸로 할 수 있을까?
 - 무엇을 상태로 놓을 것인지, 컴포넌트간 데이터 전달관계
+- datapicker 라이브러리 있나?

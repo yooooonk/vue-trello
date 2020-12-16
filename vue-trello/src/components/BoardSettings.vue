@@ -6,6 +6,13 @@
         </div>
         <ul class="menu-list">
             <li><a href="" @click.prevent="onDeleteBoard">Delete Board</a> </li>
+            <li>Change Background</li>
+            <div class="color-picker">
+              <a href="" data-value="rgb(0,121,191)" @click.prevent="onChangeTheme"></a>
+              <a href="" data-value="rgb(210,144,52)" @click.prevent="onChangeTheme"></a>
+              <a href="" data-value="rgb(176, 70, 50)" @click.prevent="onChangeTheme"></a>
+              <a href="" data-value="rgb(137, 96, 158)" @click.prevent="onChangeTheme"></a>
+            </div>
         </ul>
     </div>  
 </template>
@@ -16,21 +23,31 @@ export default {
     computed:{
         ...mapState(['board'])
     },
+    mounted(){
+      Array.from(this.$el.querySelectorAll('.color-picker a')).forEach(el=>{
+          el.style.backgroundColor = el.dataset.value
+      })
+    },
     methods:{
-        ...mapMutations(['SET_IS_SHOW_BOARD_SETTINS']),
-        ...mapActions(['DELETE_BOARD']),
+        ...mapMutations(['SET_IS_SHOW_BOARD_SETTINS','SET_THEME']),
+        ...mapActions(['DELETE_BOARD','UPDATE_BOARD']),
         onClose(){
             this.SET_IS_SHOW_BOARD_SETTINS(false)
         },
         onDeleteBoard(){
-
-            
-            
             if(!window.confirm(`DELETE ${this.board.title} Board?`)) return
             this.DELETE_BOARD({id:this.board.id})
                 .then(()=>this.SET_IS_SHOW_BOARD_SETTINS(false))
                 .then(()=>this.$router.push('/'))
 
+        },
+        onChangeTheme(e){
+          const bgColor = e.target.dataset.value
+          const id = this.board.id
+          this.UPDATE_BOARD({id,bgColor}).then(()=>{
+            this.SET_THEME(bgColor)
+          })
+          
         }
     }
 }
@@ -94,7 +111,7 @@ export default {
 }
 .color-picker a {
   display: inline-block;
-  width: 49%;
+  width: 45%;
   height: 100px;
   border-radius: 8px;
 }

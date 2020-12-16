@@ -3,7 +3,9 @@
       <div class="board-wrapper">
           <div class="board">
               <div class="board-header">
-                  <span class="board-title">{{board.title}} </span>
+                  <input type="text" class="form-control" v-if="isEditTitle" v-model="inputTitle" 
+                          ref="inputTitle" @blur="onSubmitTitle" @keyup.enter="onSubmitTitle">
+                  <span class="board-title" v-else @click="onClickTitle">{{board.title}} </span>
                   <a href="" class="board-header-btn show-menu" @click.prevent="onShowSettings">
                     ...Show Menu
                   </a>
@@ -36,15 +38,28 @@ export default {
         return{
             bid : 0,
             loading: false,
-            cdragger:null
-
+            cdragger:null,
+            isEditTitle:false,
+            inputTitle :''
         }
     },
     computed:{
         ...mapState(['board','isShowBoardSettings'])
     },
+    created(){
+      this.SET_IS_SHOW_BOARD_SETTINS(false)
+        this.fetchData().then(()=>{
+          this.inputTitle = this.board.title
+          this.SET_THEME(this.board.bgColor)          
+        })
+
+    },
+    updated(){
+      this.setCardDragabble()
+      
+    },
     methods:{
-        ...mapActions(['FETCH_BOARD','UPDATE_CARD']),
+        ...mapActions(['FETCH_BOARD','UPDATE_CARD','UPDATE_BOARD']),
         ...mapMutations(['SET_THEME','SET_IS_SHOW_BOARD_SETTINS']),
         fetchData(){
             this.loading = true
@@ -77,19 +92,30 @@ export default {
         },
         onShowSettings(){
           this.SET_IS_SHOW_BOARD_SETTINS(true)
-        }
-    },
-    created(){
-      this.SET_IS_SHOW_BOARD_SETTINS(false)
-        this.fetchData().then(()=>{
-          this.SET_THEME(this.board.bgColor)          
-        })
+        },
+        onClickTitle(){
+          this.isEditTitle=true
+          this.$nextTick(()=>{
+            this.$refs.inputTitle.focus()
+          })          
+        },
+        onSubmitTitle(){
+          this.isEditTitle = false
+          this.inputTitle = this.inputTitle.trim()
 
-    },
-    updated(){
-      this.setCardDragabble()
-      
+          if(!this.inputTitle) return
+          
+
+          const id = this.board.id
+          const title = this.inputTitle
+          
+          if(title === this.board.title) return             
+          this.UPDATE_BOARD({id,title})
+
+          
+        }
     }
+    
 }
 </script>
 
