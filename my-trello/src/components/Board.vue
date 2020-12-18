@@ -10,10 +10,17 @@ export default {
         return {
             hello:'board'
         }
+    },
+    methods:{       
+        
+        ggg : function(dd){
+            sdf
+        },        
+        gggx(){
+
+        }
+        
     }
 }
 </script>
 
-<style>
-
-</style>

@@ -1,3 +1,25 @@
+:root {
+  /* color */
+  --orange: #ff9f74;
+  --orange-mid: #ffe7d0;
+  --orange-light: #fbefe4;
+  --yellow: #ffc853;
+  --yellow-light: #ffe9b9;
+  --pink: #ff95b7;
+  --pink-light: #ffdee8;
+  --rose-pink: #ffa6a3;
+  --gray: #707070;
+  --red: #ff0000;
+  /* size */
+  --padding: 12px;
+  --avartar-size: 36px;
+  /* font size */
+  --font-large: 18px;
+  --font-medium: 14px;
+  --font-small: 12px;
+  --font-micro: 10px;
+}
+
 body {
   background-color: pink;
 }
