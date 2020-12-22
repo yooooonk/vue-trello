@@ -1,5 +1,6 @@
-const getters = {
-    isAuth(state){        
+const getters ={
+    isLogin(state){
+        
         return !!state.token
     }
 }

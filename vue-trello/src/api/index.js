@@ -4,8 +4,9 @@ import router from '../router'
 const DOMAIN = 'http://localhost:3000'
 const UNAUTHORIZED = 401
 const onUnauthorized = ()=>{
-    router.push(`/login?rPath=${encodeURIComponent(location.pathname)}`)
+    router.push(`/login`).catch(()=>{})
 }
+
 
 const request = (method, url, data) =>{
 

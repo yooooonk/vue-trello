@@ -8,8 +8,13 @@
    - 기본컴포넌트 만들기(Home,Navigationbar, NotFound, Login)
 2. vuex 생성
 3. 로그인
-   - 토큰 생성, 토큰 확인 -- api에 구현해야함
-   - 화면 이동
+   - 로그인
+     - 토큰 생성, 토큰 확인, 저장 -- api
+     - header에 인증정보 셋팅
+     - 에러메시지 출력
+     - 화면 이동
+   - 로그아웃
+     - token 정보 삭제
 4. 보드
 
    - List component
@@ -20,8 +25,15 @@
 
 ## 문제와 해결
 
-- 라우터 path 중복문제 해결?
+- 로그인할 때, 401 error 발생시 라우터 path 중복문제
   > NavigationDuplicated: Avoided redundant navigation to current location: "/".
+  > => catch로 없애버림..
+
+```javascript
+const onUnauthorized = () => {
+  router.push("/login").catch(() => {});
+};
+```
 
 ## 더할것?
 
