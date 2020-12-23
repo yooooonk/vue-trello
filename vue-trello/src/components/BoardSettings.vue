@@ -114,5 +114,6 @@ export default {
   width: 45%;
   height: 100px;
   border-radius: 8px;
+  border:1px solid white
 }
 </style>

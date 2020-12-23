@@ -14,7 +14,7 @@
         </tr>
       </table>      
     </form>    
-    <span class="error-message"></span>
+    <span class="error-message">{{error}}</span>
   </div>
   
 </template>
@@ -27,7 +27,8 @@ export default {
     return {
       id:'test@test.com',
       pw:'123123',
-      rPath:''
+      rPath:'',
+      error:''
     }
   },
   created() {
@@ -46,8 +47,8 @@ export default {
         
         this.$router.push(this.rPath)
       }).catch(error=>{
-        const errMsg = document.querySelector('.error-message')
-          errMsg.innerHTML = error.data.error
+        
+         this.error = error.data.error
         })
     }
   }
