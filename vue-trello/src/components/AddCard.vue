@@ -2,9 +2,9 @@
   <div class="add-card">
       <form>
           <input type="text" class="form-control" ref="inputText" v-model="inputTitle">
-          <button class="btn btn-success" type="submit" :disabled="invalidInput" @click.prevent="onSubmit">Add Card</button>
-          <a href="" class="cancel-add-btn" @click.prevent="$emit('close')">&times;</a>
+          <button class="btn btn-success" type="submit" :disabled="invalidInput" @click.prevent="onSubmit">Add Card</button>          
       </form>
+      <a href="" class="cancel-add-btn" @click.prevent="$emit('close')">&times;</a>
   </div>
 </template>
 

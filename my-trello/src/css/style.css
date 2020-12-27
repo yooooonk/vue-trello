@@ -224,14 +224,14 @@ body {
   border: solid white;
 }
 
-.input{
+.add-board-input{
   width: 65%;
   border:none;
   border-bottom:dashed white;
   background-color: transparent;
 }
 
-.input:focus{
+.add-board-input:focus{
   outline:none;
   border-bottom: solid white;  
   transition: opacity .3s ease;
@@ -258,8 +258,89 @@ body {
 }
 
 /*Board*/
-.board-wrapper .list-wrapper {
+.board-wrapper .list-wrapper {  
   display: flex;
   flex-direction: row;
-  flex-wrap:wrap;
+  flex-wrap:wrap;    
+}
+
+.board-wrapper .header{
+  margin: 10px;
+}
+
+.list-wrapper .add-list{
+  background-color: var(--yellow);
+  width: 150px;
+  height: 30px;
+  border-radius: 4ch;
+  text-align: center;
+  padding: 10px 10px 0px 10px;
+  margin-top: 9px;
+  color:white;  
+}
+/*List*/
+.list{
+  margin: 10px 30px 0px 20px;    
+  height: 80%;  
+}
+
+.list .header{
+  background-color: var(--yellow);
+  width: 150px;
+  height: 30px;
+  border-radius: 4ch;
+  text-align: center;
+  padding: 5% 10px 0px 10px;
+  color:white;  
+}
+
+.list .card-section{ 
+  background-color: var(--yellow-light);
+  padding: 5px 5px 20px 5px;  
+  border-radius: 3ch;  
+}
+
+.list .line{  
+  background-color: transparent;  
+  width: 90px;
+  height: 20px;
+  border-right:5px dotted var(--yellow);
+}
+
+.list .card-item{
+  background-color: white;
+  margin:10px 10px;
+  padding:10px;
+  border-radius: 1ch;
+}
+
+.card-section .add-card{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;  
+  padding:10px;
+  margin: 15px 10px;
+  border-radius: 1ch;
+  background-color:var(--yellow);
+  color:white;  
+}
+
+/*AddCard*/
+.add-card-section .input{
+  width: 120px;
+  border:none;
+  border-bottom: solid var(--yellow) 1px;
+}
+
+.add-card-section .input:focus{
+  outline:none;  
+} 
+
+.add-card-section .cancel-add-btn {
+  display: inline-block;
+  margin-left: 5px;
+  vertical-align: middle;
+  text-decoration: none;
+  color: #888;
+  font-size: 15px;
 }

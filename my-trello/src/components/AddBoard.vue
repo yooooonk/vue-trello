@@ -6,7 +6,7 @@
       </div>
       
       <div slot="body">
-          <input type="text" v-model="title" class="input" @keyup.enter="onClickPallet">
+          <input type="text" v-model="title" class="add-board-input" @keyup.enter="onClickPallet">
           <button class="button" :disabled="!title" @click="onClickAddButton">추가</button>
           <div class="pallet">
               <a href="" data-color="#ff9f74" @click.prevent="onClickPallet"></a>
