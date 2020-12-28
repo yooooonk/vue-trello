@@ -1,6 +1,6 @@
 <template>
   <div>
-      카드카드
+      {{card.title}}
   </div>
 </template>
 
@@ -8,7 +8,7 @@
 export default {
   props:['card','lid'],
   mounted(){
-    console.log(this.card,'카드',this.lid)
+    console.log('card component',this.card)
   }
 
 }

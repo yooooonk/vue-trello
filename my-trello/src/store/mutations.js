@@ -11,6 +11,9 @@ const mutations = {
         state.token = null
         localStorage.removeItem('token') // delete localStorage.token        
         setAuthInHeader(null)
+    },
+    SET_BOARD_BY_ID(state,board){
+        state.board = board
     }
 }
 

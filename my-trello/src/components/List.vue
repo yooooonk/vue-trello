@@ -10,10 +10,10 @@
                 <Card :card="card" />                          
             </div>
             <div class="card-item" v-if="isAddCard">
-                <AddCard :lid="list.id" @close="isAddCard=false"/>
+                <AddCard :lid="list.id" @close="isAddCard=false" />
             </div>
         </div>
-        <div class="add-card" @click="addCard">
+        <div class="add-card" @click="isAddCard=true">
             + Add another card
         </div>
     </div>
@@ -36,11 +36,8 @@ export default {
         }
     },    
     methods:{
-        ...mapActions(['CREATE_CARD']),
-        addCard(){
-            this.isAddCard=true
-            //this.CREATE_CARD({title,id})
-        }
+        ...mapActions(['CREATE_CARD'])
+        
     }
 
 }

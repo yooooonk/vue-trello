@@ -1,5 +1,6 @@
 const state = {
-    token:null
+    token:null,
+    board:[]
 }
 
 export default state

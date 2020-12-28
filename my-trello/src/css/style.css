@@ -278,6 +278,10 @@ body {
   margin-top: 9px;
   color:white;  
 }
+
+.list-wrapper .add-list .add-text:hover{
+  cursor: pointer;
+}
 /*List*/
 .list{
   margin: 10px 30px 0px 20px;    
@@ -323,6 +327,10 @@ body {
   border-radius: 1ch;
   background-color:var(--yellow);
   color:white;  
+}
+
+.add-card:hover{
+  cursor: pointer;
 }
 
 /*AddCard*/
