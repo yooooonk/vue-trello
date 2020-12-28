@@ -1,21 +1,18 @@
 <template>
   <div>
       <section class="board-wrapper">
-          <div class="header">              
+          <div class="header-title">              
               <div class="input-title" v-if="isTitleEdit">
-                  <input type="text" @blur="onBlur" ref="inputTitle" v-model="title">
+                  <input type="text" @blur="onBlur" @keyup.enter="onSubmitTitle" ref="inputTitle" v-model="inputTitle">
               </div>
-              <div class="title" v-else @click="onClickTitle">{{title}}</div>
+              <div class="title" v-else @click="onClickTitle">{{title}}</div>                
           </div>
           <div class="list-wrapper">
               <div class="list-section" v-for="list in board.lists" :key="list.id">
                   <List :list="list" />
               </div>
               <div class="add-list">
-                  <input type="text" v-if="isAddList" class="add-list-input" 
-                        @blur="onBlurListTitle" ref="listTitle"
-                        @keyup.enter="addList" v-model="inputListTitle">
-                  <div class="add-text" v-else @click="onClickListTitle">Add List+</div>
+                  <AddList />
               </div>
           </div>
       </section>
@@ -26,18 +23,18 @@
 <script>
 import { mapActions, mapState } from 'vuex'
 import List from './List.vue'
+import AddList from './AddList.vue'
 export default {
-    components:{List},
+    components:{List, AddList},    
     computed:{
         ...mapState(['board'])
     },
     data(){
         return {
-            boardId:'',            
-            title:'',
-            inputListTitle:'',
-            isTitleEdit:false,
-            isAddList : false
+            boardId:'',
+            title:''            ,
+            inputTitle:'',            
+            isTitleEdit:false
         }
     },
     created(){
@@ -51,10 +48,8 @@ export default {
     methods:{       
         ...mapActions(['FETCH_BOARD_BY_ID','UPDATE_BOARD','CREATE_LIST']),
         onBlur(){           
-           this.UPDATE_BOARD({id:this.boardId, title:this.title})
-            .then(()=>{
-                this.isTitleEdit = false
-            })
+          this.isTitleEdit = false
+          this.inputTitle = ''
         },
         onClickTitle(){
             this.isTitleEdit = true            
@@ -63,31 +58,19 @@ export default {
                 this.$refs.inputTitle.focus()
             })            
         },
-        onClickListTitle(){
-            this.isAddList = true
-            
-            this.$nextTick(()=>{
-                this.$refs.listTitle.focus()
-            })
-            
-        },
-        addList(){
-            const title = this.inputListTitle
-            const boardId = this.boardId
-            
-            const lastList = this.board.lists[this.board.lists.length-1]
-            const pos = lastList? lastList.pos*2 : 65535
-            if(title){
-                this.CREATE_LIST({title,boardId,pos})
-                    .finally(()=>{
-                        this.inputListTitle = ''
-                        this.isAddList = false
-                    })
-            }
-        },
-        onBlurListTitle(){
-            this.inputListTitle = ''
+        onSubmitTitle(){
+            const preTitle = this.title
+            const title = this.inputTitle
 
+            if(!title || preTitle===title){
+                this.onBlur()
+                return
+            }
+             this.UPDATE_BOARD({id:this.boardId, title:this.inputTitle})
+                    .then(()=>{
+                            this.title = title;
+                            this.isTitleEdit = false
+                    })
         }
         
     }

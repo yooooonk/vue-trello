@@ -1,7 +1,11 @@
 <template>
 <div class="list">
     <div class="header">
-        {{list.title}}
+        <input type="text" v-if="isEdit" class="list-input" 
+                        @blur="closeEdit" ref="title"
+                        @keyup.enter="updateTitle" v-model="inputTitle"> 
+        <div class="add-text" v-else @click="editTitle">{{list.title}} </div>
+        <a href="" class="list-del-btn" @click.prevent="deleteList">&times;</a>    
     </div>
     <div class="line"></div>
     <div class="card-section">
@@ -32,11 +36,43 @@ export default {
     props:['list'],
     data(){
         return {
-            isAddCard:false
+            isAddCard:false,
+            isEdit:false,
+            inputTitle:'',
+            listId:this.list.id            
         }
     },    
     methods:{
-        ...mapActions(['CREATE_CARD'])
+        ...mapActions(['CREATE_CARD','UPDATE_LIST','DELETE_LIST']),
+        editTitle(){
+            this.isEdit = true
+            this.$nextTick(()=>{
+                this.$refs.title.focus()
+            })            
+        },
+        closeEdit(){            
+            this.isEdit = false
+            this.inputTitle = ''
+        },
+        updateTitle(){
+            const title = this.inputTitle;
+            const preTitle = this.list.title
+            
+            if(!title || title===preTitle){
+                this.closeEdit()
+                return
+            }
+
+            this.UPDATE_LIST({id:this.listId,title})
+                .then(()=>this.closeEdit())
+        },
+        deleteList(){
+            if(confirm('list를 삭제하시겠습니까?')){
+                this.DELETE_LIST({id:this.listId})
+            }   
+            
+        }
+        
         
     }
 

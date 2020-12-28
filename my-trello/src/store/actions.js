@@ -29,6 +29,14 @@ const actions = {
     CREATE_LIST({dispatch,state},{title,boardId,pos}){
         return api.list.create({title,boardId,pos}) 
                 .then(()=>dispatch('FETCH_BOARD_BY_ID',{id:state.board.id}))
+    },
+    UPDATE_LIST({dispatch,state},{title,pos,id}){
+        return api.list.update(id,{title,pos})
+                    .then(()=>dispatch('FETCH_BOARD_BY_ID',{id:state.board.id}))
+    },
+    DELETE_LIST({dispatch,state},{id}){
+        return api.list.destroy(id)
+                    .then(()=>dispatch('FETCH_BOARD_BY_ID',{id:state.board.id}))
     }
 }
 

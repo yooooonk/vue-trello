@@ -31,6 +31,19 @@ body {
   margin: 0;
   font-family: var(--roboto);
 }
+input{
+  border: none; 
+  background-color: transparent;
+}
+input:focus{
+  outline:none;  
+  background-color: transparent;
+} 
+
+a{
+  text-decoration: none;
+}
+
 /*NavigationBar*/
 .nav {
   background-color: var(--orange);
@@ -116,6 +129,10 @@ body {
   left: 32%;
   margin: 10px;
   color: var(--red);
+}
+
+.login input{
+  border-bottom: 2px dashed var(--orange);
 }
 
 /*Home*/
@@ -275,16 +292,24 @@ body {
   border-radius: 4ch;
   text-align: center;
   padding: 10px 10px 0px 10px;
-  margin-top: 9px;
+  margin: 10px 0px 0px 30px;
   color:white;  
 }
 
 .list-wrapper .add-list .add-text:hover{
   cursor: pointer;
 }
+
+.board-wrapper .header-title{
+  margin:10px;
+  width: 200px;
+  border-bottom: dashed;
+}
+
+
 /*List*/
 .list{
-  margin: 10px 30px 0px 20px;    
+  margin: 10px 30px 30px 20px;    
   height: 80%;  
 }
 
@@ -302,6 +327,7 @@ body {
   background-color: var(--yellow-light);
   padding: 5px 5px 20px 5px;  
   border-radius: 3ch;  
+  border-top:solid var(--yellow) 8px
 }
 
 .list .line{  
@@ -333,16 +359,29 @@ body {
   cursor: pointer;
 }
 
+.list-input{
+  color: white;  
+}
+
+.list-del-btn{  
+  position: relative;  
+  top:-18px;
+  left: 60px;
+  color:var(--gray)  
+}
+
+.list-del-btn:hover{
+  color:white
+}
+
 /*AddCard*/
-.add-card-section .input{
+.add-card-section .input, .add-list-input{
   width: 120px;
   border:none;
   border-bottom: solid var(--yellow) 1px;
 }
 
-.add-card-section .input:focus{
-  outline:none;  
-} 
+
 
 .add-card-section .cancel-add-btn {
   display: inline-block;
