@@ -15,9 +15,10 @@
                   <AddList />
               </div>
           </div>
-      </section>
-      
+      </section>      
+      <router-view></router-view>
   </div>
+  
 </template>
 
 <script>

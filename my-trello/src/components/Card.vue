@@ -1,15 +1,12 @@
 <template>
-  <div>
-      <div class="card-header">
-           <input type="text" v-if="isEdit" class="card-input" 
-                        @blur="closeEdit" ref="title"
-                        @keyup.enter="updateCard" v-model="inputTitle"> 
-        <div class="add-text" v-else @click="editTitle">{{card.title}} </div>        
+  <div>         
+      <div class="card-header">         
+        <div class="add-text" >{{card.title}} </div>        
       </div>
       <a href="" class="card-del-btn" @click.prevent="deleteCard">&times;</a>    
       <div class="card-body" v-if="card.description">
         <i class="fas fa-bars"></i>
-      </div>
+      </div>      
   </div>
 </template>
 
@@ -20,11 +17,11 @@ export default {
   data(){
     return {
       isEdit:false
+      
     }
   },
   mounted(){
-    this.inputTitle = this.card.title
-    console.log(this.card)
+    this.inputTitle = this.card.title    
   },
   methods:{
     ...mapActions(['UPDATE_CARD','DELETE_CARD']),
@@ -37,18 +34,6 @@ export default {
         this.DELETE_CARD({id:this.card.id})
       }
       
-    },
-    updateCard(){
-      if(!this.inputTitle){        
-        return
-      }
-
-      if(this.inputTitle === this.card.title){
-        this.closeEdit()
-        return
-      }
-
-      this.UPDATE_CARD({id:this.card.id,title:this.inputTitle})
     },
     editTitle(){
       this.isEdit = true

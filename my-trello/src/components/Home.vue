@@ -3,8 +3,8 @@
   <div class="board-wrapper">
       <div class="board-list">
           <div class="board" v-for="board in list" :key="board.id"
-            :data-color="board.bgColor" :data-id="board.id" @click="onClickBoard">                              
-                <div class="board-title">{{board.title}}</div>  
+            :data-color="board.bgColor" :data-id="board.id" @click="onClickBoard">                                            
+                <div class="board-title">{{board.title}}</div>                
           </div>
           <button href="" class="add-board-button" @click.prevent="isOpenModal=true"><i class="fas fa-plus"></i></button>
       </div>      
@@ -44,8 +44,7 @@ export default {
       },
       onClickBoard(e){
           const bid = e.target.dataset.id
-
-          this.$router.push(`/board/${bid}`)
+          this.$router.push(`/b/${bid}`)
       }
     }
 }

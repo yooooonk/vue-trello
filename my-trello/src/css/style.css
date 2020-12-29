@@ -399,6 +399,80 @@ a{
   top:-20px
 }
 
-.card-header input{  
+.card-header {  
   width: 120px;
+}
+
+/*Card detail*/
+.card-detail-header .modal-close-btn{
+  position: relative;
+  left: 290px;
+}
+
+.card-detail-title{
+  
+  height: 40px;
+  width: 200px;
+}
+
+
+
+.title-input{
+  border: solid 2px;
+  width: 210px;
+
+}
+
+.card-detail-title .title{  
+  width: 200px;    
+  height: 30px;  
+}
+
+.card-detail-title .title:hover{
+  background-color: #b8b8b8
+}
+
+.card-body {
+  margin: 10px 0px 0px 0px;
+}
+
+.pencil-icon{
+  color: var(--orange);
+  
+}
+.card-save-btn{
+  position: relative; 
+  left:250px;
+  background-color: var(--orange);
+  color: white;
+  border: none;
+  width: 60px;
+  height: 30px;
+  border-radius: 1ch;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.card-save-btn:hover{
+  cursor: pointer;
+}
+
+.card-body .add-des{  
+  background-color: var(--orange-light);
+  width: 280px;
+  height: 30px;
+  color: gray;
+  border-radius: 1ch;
+  vertical-align: middle;
+  padding: 10px 0px 0px 10px;
+}
+
+.card-body .add-des:hover{
+  cursor: pointer;
+  background-color: var(--orange-mid);
+}
+
+.card-body textarea{
+  width: 280px;
+  height: 50px;
 }

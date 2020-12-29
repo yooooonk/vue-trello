@@ -10,8 +10,10 @@
     <div class="line"></div>
     <div class="card-section">
         <div class="card-list">
-            <div class="card-item" v-for="card in list.cards" :key="card.id">
-                <Card :card="card" />                          
+            <div class="card-item" v-for="card in list.cards" :key="card.id">                
+                <router-link :to="`/b/${board.id}/c/${card.id}`">
+                    <Card :card="card" />                                                     
+                </router-link>
             </div>
             <div class="card-item" v-if="isAddCard">
                 <AddCard :lid="list.id" @close="isAddCard=false" />
@@ -25,11 +27,14 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 import Card from './Card.vue'
 import AddCard from './AddCard.vue'
 
 export default {
+    computed:{
+        ...mapState(['board'])
+    },
     components:{
         Card, AddCard
     },

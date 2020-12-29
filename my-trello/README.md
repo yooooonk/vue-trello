@@ -56,12 +56,13 @@ const onUnauthorized = () => {
 - title을 수정하려고 클릭했을 때, input focus 안됨 -- ref를 못찾음
   - input <-> title를 v-if로 노출함. 감춰진 element를 노출할 때, 리렌더링을 하기때문에 ref를 못찾음. 그래서 렌더링을 기다려줘야함-- nexttick()으로 해결
   - https://michaelnthiessen.com/set-focus-on-input-vue/
+- ㅠㅠㅠㅠㅠ 카드 상세화면 router children으로 안나옴..ㅠ왜지!?!!왜1! --- 바보야. 중첩라우터는 <router-view>!!
 - session storage에 token이 있는데 새로고침하면 로그인화면이 나타남
 
 ## 더할것?
 
 [v] css 파일 분리
-- server만들어서 - 생성할 때 색깔선택 
+[v] 생성할 때 색깔선택 
 - data modeling
 - list pos값 넣기
 - 트렐로 카드 이동할 떄 pos값 규칙이 있나? 로직 어떻게 구현해야해?

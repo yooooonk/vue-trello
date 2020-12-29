@@ -6,7 +6,7 @@ import store from '../store'
 import Home from '../components/Home.vue'
 import Login from '../components/Login.vue'
 import Board from '../components/Board.vue'
-import Card from '../components/Card.vue'
+import CardDetail from '../components/CardDetail.vue'
 import NotFound from '../components/NotFound.vue'
 import { card } from '../api'
 Vue.use(VueRouter)
@@ -18,8 +18,8 @@ const requireAuth = (to,from,next)=>{
 const routes = [
     {path:'/',name:'Home',component:Home,beforeEnter:requireAuth},
     {path:'/login',name:'Login',component:Login},
-    {path:'/board/:bid',name:'Board',component:Board, beforeEnter:requireAuth,
-            children:[{path:'card/:cid',component:card,beforeEnter:requireAuth}]},
+    { path: '/b/:bid', component: Board, beforeEnter : requireAuth, 
+            children:[{path:'c/:cid', component:CardDetail, beforeEnter : requireAuth}] },  
     {path:'*',component:NotFound}
 ]
 
