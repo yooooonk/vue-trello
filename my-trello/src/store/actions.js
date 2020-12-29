@@ -26,6 +26,14 @@ const actions = {
         return api.card.create(title,listId,pos)
                 .then(()=>dispatch('FETCH_BOARD_BY_ID',{id:state.board.id}))
     },
+    UPDATE_CARD({dispatch,state},{id,title,pos}){
+        return api.card.update(id,{title,pos})
+                    .then(()=>dispatch('FETCH_BOARD_BY_ID',{id:state.board.id}))
+    },
+    DELETE_CARD({dispatch,state},{id}){
+        return api.card.destroy(id)
+                    .then(()=>dispatch('FETCH_BOARD_BY_ID',{id:state.board.id}))
+    },
     CREATE_LIST({dispatch,state},{title,boardId,pos}){
         return api.list.create({title,boardId,pos}) 
                 .then(()=>dispatch('FETCH_BOARD_BY_ID',{id:state.board.id}))

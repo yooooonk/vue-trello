@@ -38,7 +38,7 @@ export default {
         return {
             isAddCard:false,
             isEdit:false,
-            inputTitle:'',
+            inputTitle:this.list.title,
             listId:this.list.id            
         }
     },    
@@ -52,7 +52,7 @@ export default {
         },
         closeEdit(){            
             this.isEdit = false
-            this.inputTitle = ''
+            this.inputTitle = this.list.title
         },
         updateTitle(){
             const title = this.inputTitle;

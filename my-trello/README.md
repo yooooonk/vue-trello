@@ -22,13 +22,13 @@
 5. Board 화면
   [v] 리스트 목록 fetch - 각 리스트에 data props로
   - List 컴포넌트, Card 컴포넌트 생성
-  - List 추가
+  [v] List 추가 -- AddList 컴포넌트로 모듈화
   - Board settings 컴포넌트
     - 색깔변경
 6. List 컴포넌트
   [v] props로 받은데이터로 Card 생성
-  - List 제목수정
-  - card 추가 -- Add card 컴포넌트
+  [v] List 제목수정
+  [v] card 추가 -- Add card 컴포넌트
 
 7. Card 컴포넌트
   - Card title 수정

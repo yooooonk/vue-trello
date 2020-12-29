@@ -331,9 +331,11 @@ a{
 }
 
 .list .line{  
+  position: relative;
+  top: -5px;
   background-color: transparent;  
   width: 90px;
-  height: 20px;
+  height: 25px;
   border-right:5px dotted var(--yellow);
 }
 
@@ -381,8 +383,6 @@ a{
   border-bottom: solid var(--yellow) 1px;
 }
 
-
-
 .add-card-section .cancel-add-btn {
   display: inline-block;
   margin-left: 5px;
@@ -390,4 +390,15 @@ a{
   text-decoration: none;
   color: #888;
   font-size: 15px;
+}
+
+/*Card*/
+.card-del-btn{  
+  position: relative;
+  left: 130px;
+  top:-20px
+}
+
+.card-header input{  
+  width: 120px;
 }

@@ -32,7 +32,7 @@ export default {
     data(){
         return {
             boardId:'',
-            title:''            ,
+            title:'',
             inputTitle:'',            
             isTitleEdit:false
         }
