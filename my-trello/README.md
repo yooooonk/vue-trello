@@ -31,9 +31,9 @@
   [v] card 추가 -- Add card 컴포넌트
 
 7. Card 컴포넌트
-  - Card title 수정
-  - Card 삭제
-  - Card 상세 modal
+  [v] Card title 수정
+  [v] Card 삭제
+  [v] Card 상세 modal
 
 ## 플로우
 

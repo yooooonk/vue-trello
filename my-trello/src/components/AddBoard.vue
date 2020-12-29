@@ -6,8 +6,8 @@
       </div>
       
       <div slot="body">
-          <input type="text" v-model="title" class="add-board-input" @keyup.enter="onClickPallet">
-          <button class="button" :disabled="!title" @click="onClickAddButton">추가</button>
+          <input type="text" v-model="title" class="add-board-input" @keyup.enter="addBoard">
+          <button class="button" :disabled="!title" @click="addBoard">추가</button>
           <div class="pallet">
               <a href="" data-color="#ff9f74" @click.prevent="onClickPallet"></a>
               <a href="" data-color="#ffc853" @click.prevent="onClickPallet"></a>
@@ -51,11 +51,14 @@ export default {
             this.pickedColor = color? color: '#ff9f74'
             this.$el.querySelector('.modal-container').style.backgroundColor = color
         },
-        onClickAddButton(){
-            this.CREATE_BOARD({title:this.title,bgColor:this.pickedColor})
+        addBoard(){
+            if(this.title){
+                this.CREATE_BOARD({title:this.title,bgColor:this.pickedColor})
                 .then(({id})=>{
-                    this.$router.push(`/board/${id}`)                    
+                    this.$router.push(`/b/${id}`)                    
                 })
+            }
+            
         }
     }
 }

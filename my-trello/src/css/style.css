@@ -275,7 +275,7 @@ a{
 }
 
 /*Board*/
-.board-wrapper .list-wrapper {  
+.board-wrapper .list-wrapper .list-section{  
   display: flex;
   flex-direction: row;
   flex-wrap:wrap;    
@@ -295,6 +295,7 @@ a{
   margin: 10px 0px 0px 30px;
   color:white;  
 }
+
 
 .list-wrapper .add-list .add-text:hover{
   cursor: pointer;

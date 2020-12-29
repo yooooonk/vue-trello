@@ -1,5 +1,5 @@
 <template>
-  <div>         
+  <div class="card-item" :data-card-id="card.id" :data-card-pos="card.pos">         
       <div class="card-header">         
         <div class="add-text" >{{card.title}} </div>        
       </div>
