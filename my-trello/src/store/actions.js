@@ -22,10 +22,14 @@ const actions = {
     UPDATE_BOARD(_,{id,title,bgColor}){
         return api.board.update(id,{title,bgColor})
     },
+    DELETE_BOARD({dispatch},{id}){  
+        return api.board.destroy()
+
+    },
     CREATE_CARD({dispatch,state},{title,listId,pos}){
         return api.card.create(title,listId,pos)
                 .then(()=>dispatch('FETCH_BOARD_BY_ID',{id:state.board.id}))
-    },
+    },    
     FETCH_CARD({commit},{id}){        
         return api.card.fetch(id)
                 .then((res)=>commit('SET_CARD',res.item))

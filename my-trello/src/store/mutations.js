@@ -17,6 +17,15 @@ const mutations = {
     },
     SET_CARD(state,card){
         state.card = card
+    },
+    SET_THEME(state,color){
+        state.bodyColor = color || '#ff9f74'        
+    },
+    SET_OPEN_BOARD_MENU(state,toggle){
+        state.isOpenMenu = toggle
+    },
+    SET_CURRENT_MENU(state,menu){
+        state.currentMenu = menu
     }
 }
 

@@ -21,10 +21,14 @@
    [v] CSS 적용
 5. Board 화면
   [v] 리스트 목록 fetch - 각 리스트에 data props로
-  - List 컴포넌트, Card 컴포넌트 생성
+  [v] List 컴포넌트, Card 컴포넌트 생성
   [v] List 추가 -- AddList 컴포넌트로 모듈화
-  - Board settings 컴포넌트
-    - 색깔변경
+6. Board menu 
+  [v] Board menu 컴포넌트 생성
+  [v] 색깔변경
+  [] 보드삭제
+  [] board description
+  [] 메뉴 애니메이션
 6. List 컴포넌트
   [v] props로 받은데이터로 Card 생성
   [v] List 제목수정
@@ -57,20 +61,18 @@ const onUnauthorized = () => {
   - input <-> title를 v-if로 노출함. 감춰진 element를 노출할 때, 리렌더링을 하기때문에 ref를 못찾음. 그래서 렌더링을 기다려줘야함-- nexttick()으로 해결
   - https://michaelnthiessen.com/set-focus-on-input-vue/
 - ㅠㅠㅠㅠㅠ 카드 상세화면 router children으로 안나옴..ㅠ왜지!?!!왜1! --- 바보야. 중첩라우터는 <router-view>!!
+- 리스트 이동시 원래 색깔로 돌아옴
+![updated](https://github.com/yooooonk/TIL/blob/master/img/trello_nn.gif)
+  - 컴포넌트가 업데이트 되면서 리렌더링되기 때문 --> updated() 훅에서 테마를 다시바꿔줌
 - session storage에 token이 있는데 새로고침하면 로그인화면이 나타남
 
 ## 더할것?
 
 [v] css 파일 분리
-[v] 생성할 때 색깔선택 
-- data modeling
-- list pos값 넣기
-- 트렐로 카드 이동할 떄 pos값 규칙이 있나? 로직 어떻게 구현해야해?
-- 삭제 모달 confirm말고 다른걸로 할 수 있을까?
-- 무엇을 상태로 놓을 것인지, 컴포넌트간 데이터 전달관계
-- datapicker 라이브러리 있나?
-- 소셜 인증 추가
-- vuex 모듈화
+[v] 보드 생성할 때 테마색 선택 
+[] 보드 즐겨찾기 기능
+[] 카드 description
+[] 보드 메뉴에서 Board Description 추가
 
 ---
 

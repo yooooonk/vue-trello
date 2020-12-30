@@ -1,12 +1,19 @@
 <template>
   <div>
       <section class="board-wrapper">
-          <div class="header-title">              
-              <div class="input-title" v-if="isTitleEdit">
-                  <input type="text" @blur="onBlur" @keyup.enter="onSubmitTitle" ref="inputTitle" v-model="inputTitle">
-              </div>
-              <div class="title" v-else @click="onClickTitle">{{title}}</div>                
-          </div>
+            <div class="board-head">            
+                <div class="header-title">              
+                    <div class="input-title" v-if="isTitleEdit">
+                        <input type="text" @blur="onBlur" @keyup.enter="onSubmitTitle" ref="inputTitle" v-model="inputTitle">
+                    </div>
+                    <div class="title" v-else @click="onClickTitle">{{board.title}}</div>                                                  
+                </div>
+                <div class="header-menu">
+                    <a href="" class="show-menu-btn" @click.prevent="onClickShowMenuBtn">
+                        <i class="fas fa-ellipsis-h dot"></i> &nbsp; Show Menu
+                    </a>
+                </div>                
+            </div>
           <div class="list-wrapper">
               <div class="list-section">
                       <div class="list-wrapper" v-for="list in board.lists" :key="list.pos"
@@ -19,21 +26,23 @@
                 </div>
           </div>
       </section>      
+      <BoardMenu v-if="isOpenMenu" />
       <router-view></router-view>
   </div>
   
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex'
+import { mapActions, mapMutations, mapState } from 'vuex'
 import List from './List.vue'
 import AddList from './AddList.vue'
+import BoardMenu from './BoardMenu.vue'
 import dragger from '../utils/dragger'
 
 export default {
-    components:{List, AddList},    
+    components:{List, AddList,BoardMenu},    
     computed:{
-        ...mapState(['board'])
+        ...mapState(['board','isOpenMenu'])        
     },
     data(){
         return {
@@ -42,7 +51,7 @@ export default {
             inputTitle:'',            
             isTitleEdit:false,
             listDragger:'',
-            cardDragger:''
+            cardDragger:''            
         }
     },
     created(){
@@ -50,7 +59,8 @@ export default {
             this.boardId = id
             this.FETCH_BOARD_BY_ID({id})
                 .then(()=>{
-                    this.title = this.board.title;                    
+                    
+                    this.SET_THEME(this.board.bgColor)
                 })
     },
     updated(){
@@ -59,6 +69,7 @@ export default {
     },
     methods:{       
         ...mapActions(['FETCH_BOARD_BY_ID','UPDATE_BOARD','CREATE_LIST','UPDATE_LIST','UPDATE_CARD']),
+        ...mapMutations(['SET_OPEN_BOARD_MENU','SET_THEME']),
         onBlur(){           
           this.isTitleEdit = false
           this.inputTitle = ''
@@ -115,13 +126,14 @@ export default {
         setCardDragabble(){
           if(this.cdragger) this.cdragger.destroy()
           this.cdragger = dragger.init(Array.from(this.$el.querySelectorAll('.card-list')))
-
+            
           this.cdragger.on('drop',(el,target,source,sibling)=>{
+              
               const targetCard = {
               id : el.dataset.cardId*1,
               pos : 65335
               }
-
+                
               const {prev,next} = dragger.siblings({
                   el,target,
                   candidates:Array.from(target.querySelectorAll('.card-item')),
@@ -134,6 +146,9 @@ export default {
               
               this.UPDATE_CARD(targetCard)
           })     
+        },
+        onClickShowMenuBtn(){
+            this.SET_OPEN_BOARD_MENU(true)
         }
         
     }

@@ -9,11 +9,11 @@
           <input type="text" v-model="title" class="add-board-input" @keyup.enter="addBoard">
           <button class="button" :disabled="!title" @click="addBoard">추가</button>
           <div class="pallet">
-              <a href="" data-color="#ff9f74" @click.prevent="onClickPallet"></a>
-              <a href="" data-color="#ffc853" @click.prevent="onClickPallet"></a>
-              <a href="" data-color="#ffa6a3" @click.prevent="onClickPallet"></a>
-              <a href="" data-color="#a3daff" @click.prevent="onClickPallet"></a>
-              <a href="" data-color="#d3a3ff" @click.prevent="onClickPallet"></a>
+              <a href="" data-color="#ff9f74" class="orange" @click.prevent="onClickPallet"></a>
+              <a href="" data-color="#ffc853" class="yellow" @click.prevent="onClickPallet"></a>
+              <a href="" data-color="#ffa6a3" class="rose-pink" @click.prevent="onClickPallet"></a>
+              <a href="" data-color="#a3daff" class="skyblue" @click.prevent="onClickPallet"></a>
+              <a href="" data-color="#9f73ae" class="purple" @click.prevent="onClickPallet"></a>
           </div>
       </div>
       <div slot="footer">          
@@ -36,10 +36,9 @@ export default {
     },
     mounted(){
         
-         Array.from(this.$el.querySelectorAll('a')).forEach((el,idx)=>{
-                        
+         /* Array.from(this.$el.querySelectorAll('a')).forEach((el,idx)=>{                        
             el.style.backgroundColor = el.dataset.color
-        })  
+        })   */
 
         this.$el.querySelector('.modal-container').style.backgroundColor = this.pickedColor
     },

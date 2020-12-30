@@ -3,8 +3,10 @@
   <div class="board-wrapper">
       <div class="board-list">
           <div class="board" v-for="board in list" :key="board.id"
-            :data-color="board.bgColor" :data-id="board.id" @click="onClickBoard">                                            
+            :data-color="board.bgColor" :data-id="board.id">                                            
+            <router-link :to="`/b/${board.id}`">
                 <div class="board-title">{{board.title}}</div>                
+            </router-link>
           </div>
           <button href="" class="add-board-button" @click.prevent="isOpenModal=true"><i class="fas fa-plus"></i></button>
       </div>      
@@ -14,7 +16,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapMutations } from 'vuex'
 import AddBoard from './AddBoard.vue'
 export default {
   components:{
@@ -29,6 +31,7 @@ export default {
     created(){
         this.FETCH_BOARD().then((res)=>{
           this.list = res          
+          this.SET_THEME()
         })       
     },    
     updated(){
@@ -39,13 +42,11 @@ export default {
     },
     methods:{
       ...mapActions(['FETCH_BOARD']),
+      ...mapMutations(['SET_THEME']),
       onCloseModal(){
         this.isOpenModal=false
-      },
-      onClickBoard(e){
-          const bid = e.target.dataset.id
-          this.$router.push(`/b/${bid}`)
       }
+      
     }
 }
 </script>

@@ -9,7 +9,7 @@
   --pink-light: #ffdee8;
   --rose-pink: #ffa6a3;
   --skyblue: #a3daff;
-  --purple: #d3a3ff;
+  --purple: #b98dcb;
   --gray: #707070;
   --red: #ff4141;
   /* size */
@@ -44,19 +44,23 @@ a{
   text-decoration: none;
 }
 
+li a{ 
+  text-decoration: none;
+}
+
 /*NavigationBar*/
 .nav {
   background-color: var(--orange);
   width: 100%;
   height: 40px;
-  padding: 10px;
+  padding: 0px 0px 10px 0px;
   display: inline-flex;
 }
 
 .nav .logo {
   position: absolute;
   left: 45%;
-  top: 10px;
+  top: 7px;
   text-decoration: none;
   font-family: var(--nerko);
 }
@@ -152,16 +156,13 @@ a{
   box-shadow: 2px 2px 5px #999;
 }
 
-.board-list .board:hover{
-  cursor: pointer;
-}
-
 .board-list .board .board-title{
   color: #fff;
   font-size: 18px;
   font-weight: 700;
   padding: 10px;
   text-decoration: none;
+  height: 120px;
 }
 
 .board-list .add-board-button{
@@ -241,6 +242,26 @@ a{
   border: solid white;
 }
 
+.pallet .orange{
+  background-color: var(--orange);
+}
+
+.pallet .yellow{
+  background-color: var(--yellow);
+}
+
+.pallet .rose-pink{
+  background-color: var(--rose-pink);
+}
+
+.pallet .skyblue{
+  background-color: var(--skyblue);
+}
+
+.pallet .purple{
+  background-color: var(--purple);
+}
+
 .add-board-input{
   width: 65%;
   border:none;
@@ -281,12 +302,27 @@ a{
   flex-wrap:wrap;    
 }
 
-.board-wrapper .header{
-  margin: 10px;
+.board-wrapper .board-head {
+  margin: 10px;    
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.board-wrapper .header-menu{
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 10px 0px 0px 10px;
+  width: 120px;
+  height: 30px;
+  border-radius: 1ch;
+}
+.board-wrapper .header-menu:hover{
+  background-color: white;
 }
 
 .list-wrapper .add-list{
-  background-color: var(--yellow);
+  background-color: var(--orange);
   width: 150px;
   height: 30px;
   border-radius: 4ch;
@@ -294,6 +330,10 @@ a{
   padding: 10px 10px 0px 10px;
   margin: 10px 0px 0px 30px;
   color:white;  
+}
+
+.header-menu .dot{
+  font-size: 12px;
 }
 
 
@@ -308,6 +348,7 @@ a{
 }
 
 
+
 /*List*/
 .list{
   margin: 10px 30px 30px 20px;    
@@ -315,7 +356,7 @@ a{
 }
 
 .list .header{
-  background-color: var(--yellow);
+  background-color: var(--orange);
   width: 150px;
   height: 30px;
   border-radius: 4ch;
@@ -325,10 +366,10 @@ a{
 }
 
 .list .card-section{ 
-  background-color: var(--yellow-light);
+  background-color: var(--orange-mid);
   padding: 5px 5px 20px 5px;  
   border-radius: 3ch;  
-  border-top:solid var(--yellow) 8px
+  border-top:solid var(--orange) 8px
 }
 
 .list .line{  
@@ -337,28 +378,21 @@ a{
   background-color: transparent;  
   width: 90px;
   height: 25px;
-  border-right:5px dotted var(--yellow);
+  border-right:5px dotted var(--orange);
 }
 
-.list .card-item{
-  background-color: white;
-  margin:10px 10px;
-  padding:10px;
-  border-radius: 1ch;
-}
-
-.card-section .add-card{
+.card-section .add-card-btn{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;  
   padding:10px;
   margin: 15px 10px;
   border-radius: 1ch;
-  background-color:var(--yellow);
+  background-color:var(--orange);
   color:white;  
 }
 
-.add-card:hover{
+.add-card-btn:hover{
   cursor: pointer;
 }
 
@@ -381,8 +415,15 @@ a{
 .add-card-section .input, .add-list-input{
   width: 120px;
   border:none;
-  border-bottom: solid var(--yellow) 1px;
+  border-bottom: solid gray 1px;
 }
+
+.add-card-section{
+  background-color: white;
+  margin:10px 10px;
+  padding:10px;
+  border-radius: 1ch;
+} 
 
 .add-card-section .cancel-add-btn {
   display: inline-block;
@@ -400,8 +441,17 @@ a{
   top:-20px
 }
 
-.card-header {  
-  width: 120px;
+.card-item .card-header {  
+  width: 120px;  
+}
+
+.card-item{
+    background-color: white;
+    margin:10px 10px;
+    padding:10px;
+    border-radius: 1ch;
+    text-decoration: none;
+    color: black;
 }
 
 /*Card detail*/
@@ -415,8 +465,6 @@ a{
   height: 40px;
   width: 200px;
 }
-
-
 
 .title-input{
   border: solid 2px;
@@ -438,9 +486,9 @@ a{
 }
 
 .pencil-icon{
-  color: var(--orange);
-  
+  color: var(--orange);  
 }
+
 .card-save-btn{
   position: relative; 
   left:250px;
@@ -477,3 +525,87 @@ a{
   width: 280px;
   height: 50px;
 }
+
+/*BoardMenu*/
+.board-menu-wrapper{
+  overflow: hidden;
+  margin-right:2px;
+  position: absolute;
+  right:0;
+  top:50px;
+  height: 92%;  
+  width: 350px;
+  background-color: var(--orange-mid);  
+  color:gray;
+  transition: all 1s; 
+  border-radius: 2ch;  
+  padding: 0px;
+  background-color: rgba(255, 255, 255, 0.863);  
+}
+
+.main-menu{
+  margin-left: 0px;
+  transition: all .3s; 
+}
+
+.menu-header hr{  
+  width: 90%;
+}
+
+.menu-wrapper .menu-header{  
+  align-items: center;
+  height: 50px;
+  background-color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.menu-wrapper .menu-header .menu-close-btn{
+  margin-right: 10px;
+}
+.main-menu-title{
+  padding-left: 45%;
+}
+
+
+
+.back-btn{
+  padding-left: 5px;
+}
+
+.menu-list {
+  list-style-type : none;
+  padding-left: 15px;
+}
+
+.pallet {
+  margin-bottom: 20px;
+}
+
+.menu-list li{
+  font-size: 20px;
+  margin-bottom: 10px;    
+  height: 35px;
+  width: 300px;
+  padding: 10px 0px 0px 20px;
+  border-radius: 1ch;
+}
+
+.menu-list li:hover{
+   background-color: #c5c5c534;
+   cursor: pointer;
+}
+
+.menu-list .pallet{  
+  padding-left: 30px;
+  
+}
+
+.header-close-btn{
+  position: absolute;
+  right: 10px;
+  top:15px;  
+}
+
