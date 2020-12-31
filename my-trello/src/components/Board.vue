@@ -25,8 +25,10 @@
                       </div>
                 </div>
           </div>
-      </section>      
-      <BoardMenu v-if="isOpenMenu" />
+      </section>
+      <transition name="slide-fade">
+            <BoardMenu v-if="isOpenMenu" />      
+      </transition>
       <router-view></router-view>
   </div>
   

@@ -231,6 +231,7 @@ li a{
 
 .pallet{
   margin: 25px 0px 0px 0px;
+  z-index: -1;
 }
 
 .pallet a{
@@ -527,11 +528,12 @@ li a{
 }
 
 /*BoardMenu*/
+
 .board-menu-wrapper{
   overflow: hidden;
   margin-right:2px;
-  position: absolute;
-  right:0;
+  position: fixed;
+  right:0px;
   top:50px;
   height: 92%;  
   width: 350px;
@@ -540,8 +542,8 @@ li a{
   transition: all 1s; 
   border-radius: 2ch;  
   padding: 0px;
-  background-color: rgba(255, 255, 255, 0.863);  
-}
+  background-color: rgba(255, 255, 255, 0.863);    
+} 
 
 .main-menu{
   margin-left: 0px;
@@ -567,6 +569,12 @@ li a{
 }
 .main-menu-title{
   padding-left: 45%;
+}
+
+.about-menu-body textarea{
+  width: 280px;
+  height: 150px;
+  margin-top:20px;
 }
 
 
@@ -599,8 +607,11 @@ li a{
 }
 
 .menu-list .pallet{  
-  padding-left: 30px;
-  
+  padding-left: 30px;  
+}
+
+.about-menu-body{
+  margin: 20px;
 }
 
 .header-close-btn{
@@ -609,3 +620,49 @@ li a{
   top:15px;  
 }
 
+.menu-list .pallet{
+  margin: 0;
+  margin-top: 0px; 
+  transition: all .3s;
+  padding-top: 10px;  
+}
+
+.board-des{
+  margin-top: 20px;
+}
+
+.add-board-des{  
+  border-radius: 3px;
+  padding:10px
+
+}
+
+.add-board-des:hover{  
+  background-color: #c5c5c534;
+   cursor: pointer;
+
+}
+
+.slide-fade-enter-active {
+  transition: all .5s ease;
+}
+
+.slide-fade-leave-active {
+  transition: all .5s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to
+{
+  transform: translateX(300px);  
+} 
+
+.pallet-slide-enter-active {
+  transition: all .5s ease;
+}
+
+.pallet-slide-leave-active {
+  transition: all .5s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.pallet-slide-enter, .pallet-slide-leave-to
+{
+  transform: translateY(-70px);  
+} 

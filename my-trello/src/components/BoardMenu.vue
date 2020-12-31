@@ -1,5 +1,5 @@
 <template>
-    <div class="board-menu-wrapper">        
+    <div class="board-menu-wrapper"> 
             <MenuMain class="main-menu" v-if="currentMenu==='MAIN'"/>
             <AboutBoard class="about-menu" v-if="currentMenu==='ABOUT'"/>
     </div>

@@ -64,7 +64,8 @@ const onUnauthorized = () => {
 - 리스트 이동시 원래 색깔로 돌아옴
 ![updated](https://github.com/yooooonk/TIL/blob/master/img/trello_nn.gif)
   - 컴포넌트가 업데이트 되면서 리렌더링되기 때문 --> updated() 훅에서 테마를 다시바꿔줌
-- session storage에 token이 있는데 새로고침하면 로그인화면이 나타남
+- board menu에 slide 효과를 주고싶다!!
+  - vue의 <transition> 이용..순수 css로는 구현실패...
 
 ## 더할것?
 

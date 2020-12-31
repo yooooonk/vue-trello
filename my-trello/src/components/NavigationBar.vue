@@ -1,7 +1,7 @@
 <template>
 <nav class="nav">
     <div class="logo">
-      <router-link to="/" >MY TRELLO</router-link>
+      <router-link to="/">MY TRELLO</router-link>
     </div>
     <div class="auth">      
       <router-link to="/login"><button v-if="!isLogin">Login</button></router-link>
@@ -40,8 +40,7 @@ export default {
           const list = document.querySelectorAll('.list') 
                  
          if(this.$route.params.bid){           
-           list.forEach(el=>{       
-             
+           list.forEach(el=>{    
               el.childNodes[0].style.backgroundColor = bodyColor
               el.childNodes[2].style.borderColor = bodyColor
               const cardSection = el.querySelector('.card-section')
@@ -54,7 +53,15 @@ export default {
             document.querySelectorAll('.add-card-btn').forEach((el)=>{
               el.style.backgroundColor = bodyColor
             })
+
+            const headerTitle = document.querySelector('.header-title')
+            
+             if(headerTitle){
+               headerTitle.style.borderColor = bodyColor
+            }             
          }  
+
+         
                 
        }
    }

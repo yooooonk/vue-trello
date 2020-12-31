@@ -38,6 +38,9 @@ export default {
     updated(){
         this.updateTheme()
     },    
+    mounted(){
+        this.updateTheme()
+    },
     data(){
         return {
             isAddCard:false,
@@ -66,7 +69,6 @@ export default {
                 this.closeEdit()
                 return
             }
-
             this.UPDATE_LIST({id:this.listId,title})
                 .then(()=>this.closeEdit())
         },

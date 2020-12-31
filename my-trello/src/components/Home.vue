@@ -34,15 +34,19 @@ export default {
           this.SET_THEME()
         })       
     },    
-    updated(){
+    updated(){      
       Array.from(this.$el.querySelectorAll('.board')).forEach(el=>{
         const bgColor = el.dataset.color;
         el.style.backgroundColor=bgColor
       })
+
+      this.SET_OPEN_BOARD_MENU(false)
+      this.SET_CURRENT_MENU('MAIN')
+
     },
     methods:{
       ...mapActions(['FETCH_BOARD']),
-      ...mapMutations(['SET_THEME']),
+      ...mapMutations(['SET_THEME','SET_OPEN_BOARD_MENU','SET_CURRENT_MENU']),
       onCloseModal(){
         this.isOpenModal=false
       }

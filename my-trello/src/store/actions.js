@@ -19,12 +19,13 @@ const actions = {
         return api.board.create(title,bgColor)
                 .then((res)=>res.item)
     },
-    UPDATE_BOARD(_,{id,title,bgColor}){
-        return api.board.update(id,{title,bgColor})
+    UPDATE_BOARD({dispatch,state},{id,title,bgColor,description}){
+        return api.board.update(id,{title,bgColor,description})
+                .then(()=>dispatch('FETCH_BOARD_BY_ID',{id:state.board.id}))
     },
     DELETE_BOARD({dispatch},{id}){  
-        return api.board.destroy()
-
+        return api.board.destroy(id)
+                .then(()=>dispatch('FETCH_BOARD'))
     },
     CREATE_CARD({dispatch,state},{title,listId,pos}){
         return api.card.create(title,listId,pos)

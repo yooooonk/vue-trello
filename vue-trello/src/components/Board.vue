@@ -60,11 +60,6 @@ export default {
         })
 
     },
-    updated(){
-      this.setCardDragabble()
-      this.setListDragabble()
-      
-    },
     methods:{
         ...mapActions(['FETCH_BOARD','UPDATE_CARD','UPDATE_BOARD','UPDATE_LIST']),
         ...mapMutations(['SET_THEME','SET_IS_SHOW_BOARD_SETTINS']),
