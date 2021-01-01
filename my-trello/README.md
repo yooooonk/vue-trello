@@ -1,8 +1,14 @@
-# my-trollo
-
+#  &#127752;my-trollo
+![login](https://github.com/yooooonk/TIL/blob/master/img/mytrello_login.gif)
+![logout](https://github.com/yooooonk/TIL/blob/master/img/mytrello_logout.gif)
+![boardcreate](https://github.com/yooooonk/TIL/blob/master/img/mytrello_board%20CU.gif)
+![list](https://github.com/yooooonk/TIL/blob/master/img/mytrello_list%20CRUD.gif)
+![boardUD](https://github.com/yooooonk/TIL/blob/master/img/mytrello_boad%20UD.gif)
+![card](https://github.com/yooooonk/TIL/blob/master/img/mytrello_card%20CRUD.gif)
+## 
 ---
 
-## 개발 순서
+## &#128036;개발 순서
 
 1. 라우터 - 기본 화면 플로우 구현
    [v] 기본컴포넌트 만들기(Home,Navigationbar, NotFound, Login)
@@ -26,22 +32,20 @@
 6. Board menu 
   [v] Board menu 컴포넌트 생성
   [v] 색깔변경
-  [] 보드삭제
-  [] board description
-  [] 메뉴 애니메이션
+  [v] 보드삭제
+  [v] board description
+  [v] 메뉴 애니메이션
 6. List 컴포넌트
   [v] props로 받은데이터로 Card 생성
   [v] List 제목수정
   [v] card 추가 -- Add card 컴포넌트
-
 7. Card 컴포넌트
   [v] Card title 수정
   [v] Card 삭제
   [v] Card 상세 modal
 
-## 플로우
 
-## 문제와 해결
+## &#128161; 문제와 해결
 
 - 로그인할 때, 401 error 발생시 라우터 path 중복문제
   > NavigationDuplicated: Avoided redundant navigation to current location: "/".
@@ -67,17 +71,10 @@ const onUnauthorized = () => {
 - board menu에 slide 효과를 주고싶다!!
   - vue의 <transition> 이용..순수 css로는 구현실패...
 
-## 더할것?
-
-[v] css 파일 분리
-[v] 보드 생성할 때 테마색 선택 
-[] 보드 즐겨찾기 기능
-[] 카드 description
-[] 보드 메뉴에서 Board Description 추가
 
 ---
 
-**reference**
+**&#128220;reference**
 
 - https://dribbble.com/shots/8653870-Task-management-App/attachments/909308?mode=media
 - https://dribbble.com/shots/7045855-Pottery-Web-Design/attachments/46138?mode=media

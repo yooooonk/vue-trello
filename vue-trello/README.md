@@ -88,7 +88,7 @@ $ vue init webpack-simple
 - 보드 수정 : 색상변경, 제목 수정
 - 리스트 : 수정, 삭제, 이동
 
-## 새로 알게 된 것
+## &#128036;새로 알게 된 것
 
 - router와 SPA의 의미, 뷰 라우터
 - Vue.use
@@ -150,16 +150,14 @@ $ vue init webpack-simple
 - \$nextTick
 
 ## 더 해볼 것
-
+- 디자인 새로
 - css 파일 분리
-- data modeling
-- list pos값 넣기
-- 트렐로 카드 이동할 떄 pos값 규칙이 있나? 로직 어떻게 구현해야해?
-- 삭제 모달 confirm말고 다른걸로 할 수 있을까?
-- 무엇을 상태로 놓을 것인지, 컴포넌트간 데이터 전달관계
-- datapicker 라이브러리 있나?
-- 소셜 인증 추가
+[v] 디자인 수정
+[v] css 파일분리
+[v] 보드 생성할 때 테마색 선택 
+[v] 카드 description + 아이콘
+[v] 보드 메뉴에서 Board Description 추가
+[v] 보드 메뉴 애니메이션
 
-## 고민?
 
-- 보드 title 수정시 delay가 있는데 어떻게 해결하지?
+
