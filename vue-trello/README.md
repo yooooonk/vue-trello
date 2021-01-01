@@ -150,14 +150,14 @@ $ vue init webpack-simple
 - \$nextTick
 
 ## 더 해볼 것
-- 디자인 새로
-- css 파일 분리
-[v] 디자인 수정
-[v] css 파일분리
-[v] 보드 생성할 때 테마색 선택 
-[v] 카드 description + 아이콘
-[v] 보드 메뉴에서 Board Description 추가
-[v] 보드 메뉴 애니메이션
+- [v] 디자인 새로
+- [v] css 파일 분리
+- [v] 디자인 수정
+- [v] css 파일분리
+- [v] 보드 생성할 때 테마색 선택 
+- [v] 카드 description + 아이콘
+- [v] 보드 메뉴에서 Board Description 추가
+- [v] 보드 메뉴 애니메이션
 
 
 
