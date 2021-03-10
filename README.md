@@ -1,5 +1,5 @@
 # vue-trello
-인프런 - [트렐로 개발로 배우는 Vuejs, Vuex, Vue-Router 프론트엔드 실전 기술(김정환)]를 보며 trello를 클론하고, 학습한 내용을 반복하며 다시 만들어보았다.
+인프런 - [트렐로 개발로 배우는 Vuejs, Vuex, Vue-Router 프론트엔드 실전 기술(김정환)]를 보며 trello를 클론하고, 학습한 내용을 바탕으로 디자인을 바꾸고, 기능을 추가해 처음부터 다시 만들어보았다.
 flowbox로 화면을 구성하고, css에 더 익숙해졌고, vue router와 vuex 개념을 익히고 사용했다.
 drag and drop은 dragulla lib을 사용했다. 
 
